@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shipping Label Generator</title>
+  </head>
+  <body>
+    <!-- Your content here -->
+    <h1>Shipping Label Generator</h1>
+    <h3>Enter the details below to generate a shipping label</h3>
+    <h4>Sender Details</h4>
+    <div class="form">
+      <input type="text" id="fromName" placeholder="From Name" />
+      <input type="text" id="fromAddress" placeholder="From Address" />
+      <input type="text" id="fromCity" placeholder="From City" />
+      <input type="text" id="fromState" placeholder="From State" />
+      <input type="text" id="fromZip" placeholder="From Zip" />
+      <input type="text" id="senderMobile" placeholder="Sender Mobile No" />
+    </div>
+    <h4>Receiver Details</h4>
+    <div class="form">
+      <input type="text" id="toName" placeholder="To Name" />
+      <input type="text" id="toAddress" placeholder="To Address" />
+      <input type="text" id="toCity" placeholder="To City" />
+      <input type="text" id="toState" placeholder="To State" />
+      <input type="text" id="toZip" placeholder="To Zip" />
+      <input type="text" id="receiverMobile" placeholder="Receiver Mobile No" />
+    </div>
+    <button id="generateBtn">Generate PDF</button>
+    <style>
+      .form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+      }
+      input {
+        margin: 5px;
+        padding: 5px;
+      }
+      button {
+        margin: 10px;
+        padding: 10px;
+        width: 20%;
+      }
+    </style>
+  </body>
+  <script src="/dist/main.js"></script>
+  <!-- <script>
+    // Function to Save Sender details to local storage by props
+    const saveSenderDetails = (props) => {
+      localStorage.setItem("fromName", props.fromName);
+      localStorage.setItem("fromAddress", props.fromAddress);
+      localStorage.setItem("fromCity", props.fromCity);
+      localStorage.setItem("fromState", props.fromState);
+      localStorage.setItem("fromZip", props.fromZip);
+      localStorage.setItem("senderMobile", props.senderMobile);
+    };
+
+    // If Sender details are already saved in local storage then set the values to input fields
+    if (localStorage.getItem("fromName")) {
+      fromName.value = localStorage.getItem("fromName");
+      fromAddress.value = localStorage.getItem("fromAddress");
+      fromCity.value = localStorage.getItem("fromCity");
+      fromState.value = localStorage.getItem("fromState");
+      fromZip.value = localStorage.getItem("fromZip");
+      senderMobile.value = localStorage.getItem("senderMobile");
+    }
+
+    document
+      .getElementById("generate-pdf")
+      .addEventListener("click", function () {
+        data = {
+          fromName: fromName.value,
+          fromAddress: fromAddress.value,
+          fromCity: fromCity.value,
+          fromState: fromState.value,
+          fromZip: fromZip.value,
+          senderMobile: senderMobile.value,
+          toName: toName.value,
+          toAddress: toAddress.value,
+          toCity: toCity.value,
+          toState: toState.value,
+          toZip: toZip.value,
+          receiverMobile: receiverMobile.value,
+        };
+        saveSenderDetails(data);
+        var doc = new jspdf.jsPDF({
+          format: "a6",
+        });
+        doc.setFontSize(10);
+        doc.text("FROM:", 10, 15);
+        doc.setLineWidth(1.5);
+        doc.text(fromName.value, 35, 15);
+        doc.line(10, 50, 95, 50);
+
+        // var text = "Lodi Katra\nPatna City -800008";
+
+        // var textLines = doc.splitTextToSize(text);
+
+        // doc.text(textLines, 35, 20);
+        doc.text(fromAddress.value, 35, 20);
+        doc.text(fromCity.value, 35, 25);
+        doc.text(fromState.value, 35, 30);
+        doc.text(fromZip.value, 35, 35);
+        doc.text(senderMobile.value, 35, 40);
+
+        doc.text("TO:", 10, 65);
+        doc.text(toName.value, 35, 65);
+        doc.text(toAddress.value, 35, 70);
+        doc.text(toCity.value, 35, 75);
+        doc.text(toState.value, 35, 80);
+        doc.text(toZip.value, 35, 85);
+        doc.text(receiverMobile.value, 35, 90);
+
+        // Save the PDF
+        doc.save("shipping_label.pdf");
+      });
+  </script> -->
+</html>
